@@ -1,79 +1,197 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #fff8f0;
-  color: #333;
+/* Reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  background: #fefefe;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Links */
+a {
+  color: #e03e2f; /* Fiery Red */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #a02b1f; /* Darker red */
+}
+
+/* Header */
 header {
-  text-align: center;
-  padding-bottom: 20px;
+  background-color: #e03e2f; /* Fiery Red */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  user-select: none;
 }
 
 header h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.2em;
+  font-size: 1.8rem;
+  user-select: none;
+  margin: 0;
+  color: white;
+  flex-grow: 1; /* Push nav right */
 }
 
 nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #d64545;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.hero {
-  background-color: #d64545;
+  margin-left: 1.5rem;
+  font-weight: 600;
   color: white;
-  padding: 30px;
-  border-radius: 8px;
-  margin-bottom: 30px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+  color: #2a662a; /* Deep green accent */
+}
+
+/* Main content */
+main {
+  max-width: 700px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+h2 {
+  margin-bottom: 0.6rem;
+  color: #e03e2f; /* Fiery Red */
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+ul {
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* Form styling */
 form {
-  background-color: #fff0f0;
-  padding: 20px;
+  background-color: #fff7f6;
+  border: 1px solid #e03e2f;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(214, 69, 69, 0.2);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgb(224 62 47 / 0.2);
 }
 
-input, textarea {
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #b83223;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
   width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
+  padding: 0.5rem 0.7rem;
   border-radius: 4px;
+  border: 1.5px solid #e6b1ac;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
   resize: vertical;
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e03e2f;
+  box-shadow: 0 0 5px rgba(224, 62, 47, 0.5);
+}
+
 button {
-  background-color: #d64545;
+  background-color: #e03e2f;
   color: white;
-  padding: 10px 16px;
   border: none;
-  border-radius: 5px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 100%;
+  max-width: 200px;
 }
 
 button:hover {
-  background-color: #b63b3b;
+  background-color: #a02b1f;
 }
 
+/* Response message */
+#responseMessage {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2a662a; /* Green for success */
+  min-height: 1.5rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #999;
+  padding: 1rem;
+  background: #eee;
+  font-size: 0.9rem;
+  color: #666;
+  user-select: none;
 }
 
-#responseMessage {
-  margin-top: 15px;
-  font-weight: bold;
+/* Responsive */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+    margin-bottom: 0.7rem;
+    display: inline-block;
+  }
+  main {
+    margin: 1rem;
+  }
+  button {
+    max-width: 100%;
+  }
 }
