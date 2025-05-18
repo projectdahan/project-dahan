@@ -2,9 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get Help - Project Dahan</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #fefefe;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    a {
+      color: #e03e2f;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #a02b1f;
+    }
+    header {
+      background-color: #e03e2f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+    }
+    nav a.active, nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 700px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+    h2 {
+      margin-bottom: 0.6rem;
+      color: #e03e2f;
+      font-weight: 700;
+    }
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    ul {
+      margin-bottom: 1.5rem;
+      list-style-type: disc;
+      padding-left: 1.2rem;
+      color: #555;
+    }
+    form {
+      background-color: #fff7f6;
+      border: 1px solid #e03e2f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgb(224 62 47 / 0.2);
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #b83223;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem 0.7rem;
+      border-radius: 4px;
+      border: 1.5px solid #e6b1ac;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #e03e2f;
+      box-shadow: 0 0 5px rgba(224, 62, 47, 0.5);
+    }
+    button {
+      background-color: #e03e2f;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      width: 100%;
+      max-width: 200px;
+    }
+    button:hover {
+      background-color: #a02b1f;
+    }
+    #responseMessage {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #2a662a;
+      min-height: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      font-size: 0.9rem;
+      color: #666;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+        margin-bottom: 0.7rem;
+        display: inline-block;
+      }
+      main {
+        margin: 1rem;
+      }
+      button {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,7 +167,7 @@
       <a href="index.htm">Home</a>
       <a href="about.htm">About</a>
       <a href="stories.htm">Stories</a>
-      <a href="gethelp.htm">Get Help</a>
+      <a href="gethelp.htm" class="active">Get Help</a>
       <a href="contact.htm">Contact</a>
     </nav>
   </header>
@@ -25,26 +179,26 @@
       
       <h3>Emergency Contacts</h3>
       <ul>
-        <li>Helpline 1: 123-456-7890</li>
-        <li>Helpline 2: 098-765-4321</li>
-        <li>Local Support Center: support@example.org</li>
+        <li>Helpline 1: <a href="tel:1234567890">123-456-7890</a></li>
+        <li>Helpline 2: <a href="tel:0987654321">098-765-4321</a></li>
+        <li>Local Support Center: <a href="mailto:support@example.org">support@example.org</a></li>
       </ul>
 
       <h3>Reach Out Confidentially</h3>
-      <form id="helpForm" action="https://formspree.io/f/xvgalyvj" method="POST">
-        <label for="name">Your Name (optional):</label><br />
-        <input type="text" id="name" name="name" /><br /><br />
+      <form id="helpForm" action="https://formspree.io/f/xvgalyvj" method="POST" novalidate>
+        <label for="name">Your Name (optional):</label>
+        <input type="text" id="name" name="name" autocomplete="name" />
 
-        <label for="email">Your Email (optional):</label><br />
-        <input type="email" id="email" name="email" /><br /><br />
+        <label for="email">Your Email (optional):</label>
+        <input type="email" id="email" name="email" autocomplete="email" />
 
-        <label for="message">Your Message:</label><br />
-        <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
 
-      <p id="responseMessage"></p>
+      <p id="responseMessage" role="alert" aria-live="polite"></p>
     </section>
   </main>
 
@@ -68,13 +222,16 @@
       })
       .then(response => {
         if (response.ok) {
+          responseMessage.style.color = '#2a662a';
           responseMessage.textContent = 'Thank you for reaching out. We will get back to you soon.';
           form.reset();
         } else {
+          responseMessage.style.color = '#a02b1f';
           responseMessage.textContent = 'Oops! There was a problem sending your message.';
         }
       })
       .catch(() => {
+        responseMessage.style.color = '#a02b1f';
         responseMessage.textContent = 'Oops! There was a problem sending your message.';
       });
     });
