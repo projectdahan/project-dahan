@@ -2,51 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us - Project Dahan</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fefefe; color: #333;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    a {
+      color: #e03e2f;
+      text-decoration: none;
+      transition: color .3s;
+    }
+    a:hover, a:focus {
+      color: #2a662a;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background: #e03e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo-link { display: inline-block; }
+    .logo {
+      height: 40px;
+      width: auto;
+      user-select: none;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      flex-grow: 1;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      color: white;
+    }
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    /* Main */
+    main {
+      flex: 1;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #e03e2f;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: #fff7f6;
+      border: 1px solid #e03e2f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(224, 62, 47, 0.2);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #b83223;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem 0.7rem;
+      margin-bottom: 1rem;
+      border: 1.5px solid #e6b1ac;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #e03e2f;
+      outline: none;
+      box-shadow: 0 0 5px rgba(224, 62, 47, 0.5);
+    }
+    .contact-form button {
+      background: #e03e2f;
+      color: #fff;
+      padding: 0.8rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 200px;
+    }
+    .contact-form button:hover,
+    .contact-form button:focus {
+      background-color: #a02b1f;
+      outline: none;
+    }
+
+    #responseMessage {
+      margin-top: 1rem;
+      font-weight: 700;
+      min-height: 1.5rem;
+      color: #2a662a;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin: 0.5rem 0.5rem 0 0;
+        display: inline-block;
+      }
+      main {
+        margin: 1rem auto;
+      }
+      .contact-form button {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-  <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
-    <img src="logo.png" alt="Project Dahan Logo" class="logo" />
-  </a>
-  <h1>Project Dahan</h1>
-  <nav>
-    <a href="index.htm">Home</a>
-    <a href="about.htm">About</a>
-    <a href="stories.htm">Stories</a>
-    <a href="gethelp.htm" class="active">Get Help</a>
-    <a href="contact.htm">Contact</a>
-  </nav>
-</header>
 
+  <header>
+    <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
+      <img src="logo.png" alt="Project Dahan Logo" class="logo" />
+    </a>
+    <h1>Project Dahan</h1>
+    <nav>
+      <a href="index.htm">Home</a>
+      <a href="about.htm">About</a>
+      <a href="stories.htm">Stories</a>
+      <a href="gethelp.htm">Get Help</a>
+      <a href="contact.htm" class="active" aria-current="page">Contact</a>
+    </nav>
+  </header>
 
   <main>
-    <section class="content">
-      <h2>Contact Us</h2>
-      <p>If you want to contribute, collaborate, or report a concern, you can email us or use this form:</p>
+    <h2>Contact Us</h2>
+    <p>If you want to contribute, collaborate, or report a concern, please fill out the form below or email us directly.</p>
 
-      <!-- Placeholder form for now -->
-      <form action="https://formspree.io/f/xvgalyvj" method="POST">
-        <label for="name">Your Name (Optional):</label><br>
-        <input type="text" id="name" name="name"><br>
+    <section class="contact-form">
+      <form id="contactForm" action="https://formspree.io/f/xvgalyvj" method="POST" novalidate>
+        <label for="name">Your Name (optional):</label>
+        <input type="text" id="name" name="name" autocomplete="name" />
 
-        <label for="email">Your Email (Optional):</label><br>
-        <input type="email" id="email" name="_replyto"><br>
+        <label for="email">Your Email (optional):</label>
+        <input type="email" id="email" name="_replyto" autocomplete="email" />
 
-        <label for="message">Your Message:</label><br>
-        <textarea id="message" name="message" rows="6" required></textarea><br><br>
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" aria-label="Send Message">Send Message</button>
       </form>
 
-      <p>Or email us directly at: <strong>dahan.safe@proton.me</strong></p>
+      <p id="responseMessage" role="alert" aria-live="polite"></p>
     </section>
+
+    <p style="margin-top:1.5rem;">Or email us directly at: <strong><a href="mailto:dahan.safe@proton.me">dahan.safe@proton.me</a></strong></p>
   </main>
 
   <footer>
     <p>&copy; 2025 Project Dahan. All rights reserved.</p>
   </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const msg  = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => {
+        if (res.ok) {
+          msg.style.color = '#2a662a';
+          msg.textContent = 'Thank you! We’ll be in touch soon.';
+          form.reset();
+        } else {
+          msg.style.color = '#a02b1f';
+          msg.textContent = 'Oops! Something went wrong.';
+        }
+      })
+      .catch(() => {
+        msg.style.color = '#a02b1f';
+        msg.textContent = 'Oops! Something went wrong.';
+      });
+    });
+  </script>
+
 </body>
 </html>

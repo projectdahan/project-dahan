@@ -5,27 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Project Dahan</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #e03e2f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      height: 40px;
+      width: auto;
+      user-select: none;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      flex-grow: 1;
+      user-select: none;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
+      color: #fce0dc;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      color: #e03e2f;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      color: #666;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin: 0.5rem 0 0 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-  <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
-    <img src="logo.png" alt="Project Dahan Logo" class="logo" />
-  </a>
-  <h1>Project Dahan</h1>
-  <nav>
-    <a href="index.htm">Home</a>
-    <a href="about.htm">About</a>
-    <a href="stories.htm">Stories</a>
-    <a href="gethelp.htm" class="active">Get Help</a>
-    <a href="contact.htm">Contact</a>
-  </nav>
-</header>
+    <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
+      <img src="logo.png" alt="Project Dahan Logo" class="logo" />
+    </a>
+    <h1>Project Dahan</h1>
+    <nav>
+      <a href="index.htm">Home</a>
+      <a href="about.htm" class="active">About</a>
+      <a href="stories.htm">Stories</a>
+      <a href="gethelp.htm">Get Help</a>
+      <a href="contact.htm">Contact</a>
+    </nav>
+  </header>
 
   <main>
     <h2>About Project Dahan</h2>
     <p>
-      Project Dahan is a movement to end manipulation, abuse, and exploitation.
-      We provide a platform for survivors to share their stories and get support.
+      <strong>Project Dahan</strong> is a youth-led initiative dedicated to burning down the metaphorical "Lanka" of modern-day exploitation, manipulation, and abuse—especially those based on power imbalance and psychological coercion. Our mission is to awaken courage, create safe support systems, and inspire transformation in society by exposing the silent epidemic of manipulation-based sexual exploitation and emotional abuse.
+    </p>
+
+    <p>
+      We aim to reach people who are often left voiceless—those suffering in silence, unaware they are being wronged, or too isolated to seek help. Through education, real-life stories, and human connection, we strive to:
+    </p>
+
+    <ul>
+      <li>Provide a <strong>safe platform</strong> where survivors can share their experiences anonymously or openly.</li>
+      <li>Offer <strong>compassionate support and companionship</strong> to those affected by manipulation, blackmail, grooming, emotional abuse, trafficking, or isolation.</li>
+      <li>Build a <strong>network of allies and changemakers</strong> willing to protect, uplift, and fight against injustice.</li>
+      <li><strong>Educate</strong> individuals to recognize manipulation, coercive control, psychological traps, and unhealthy power dynamics in any relationship.</li>
+    </ul>
+
+    <p>
+      We believe that awareness is the first flame. Once lit, it cannot be unseen. Project Dahan exists to be that first spark for those still stuck in darkness.
+    </p>
+
+    <p>
+      Our team consists of medical students, activists, artists, and empathetic individuals who believe that change doesn’t always require an institution—it requires intention and fire.
+    </p>
+
+    <p>
+      If you've been hurt, ignored, or made to feel powerless—we see you. We hear you. You're not alone. Dahan is here for you.
+    </p>
+
+    <p style="font-weight: bold;">
+      Together, we burn down the evil. Together, we rise.
     </p>
   </main>
 

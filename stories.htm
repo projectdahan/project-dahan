@@ -5,27 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stories - Project Dahan</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fefefe;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #e03e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      user-select: none;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #d0ffd0;
+      text-decoration: underline;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #e03e2f;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      color: #666;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0.5rem 0 0 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-  <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
-    <img src="logo.png" alt="Project Dahan Logo" class="logo" />
-  </a>
-  <h1>Project Dahan</h1>
-  <nav>
-    <a href="index.htm">Home</a>
-    <a href="about.htm">About</a>
-    <a href="stories.htm">Stories</a>
-    <a href="gethelp.htm" class="active">Get Help</a>
-    <a href="contact.htm">Contact</a>
-  </nav>
-</header>
-
+    <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
+      <img src="logo.png" alt="Project Dahan Logo" class="logo" />
+    </a>
+    <h1>Project Dahan</h1>
+    <nav>
+      <a href="index.htm">Home</a>
+      <a href="about.htm">About</a>
+      <a href="stories.htm" class="active">Stories</a>
+      <a href="gethelp.htm">Get Help</a>
+      <a href="contact.htm">Contact</a>
+    </nav>
+  </header>
 
   <main>
     <h2>Stories of Hope and Strength</h2>
-    <p>This page will feature shared stories from survivors to inspire and support others.</p>
-    <p>(Coming soon!)</p>
+    <p>Here we’ll soon showcase real-life stories from brave individuals who have walked through darkness and found light.</p>
+    <p><em>Coming soon…</em></p>
   </main>
 
   <footer>

@@ -2,48 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project Dahan</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Dahan – Share Your Story</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-  <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
-    <img src="logo.png" alt="Project Dahan Logo" class="logo" />
-  </a>
-  <h1>Project Dahan</h1>
-  <nav>
-    <a href="index.htm">Home</a>
-    <a href="about.htm">About</a>
-    <a href="stories.htm">Stories</a>
-    <a href="gethelp.htm" class="active">Get Help</a>
-    <a href="contact.htm">Contact</a>
-  </nav>
-</header>
+  <button class="quick-exit" onclick="window.open('https://www.google.com', '_blank');">Quick Exit</button>
 
+  <header>
+    <a href="index.htm" class="logo-link" aria-label="Project Dahan Home">
+      <img src="logo.png" alt="Project Dahan Logo" class="logo" />
+    </a>
+    <h1>Project Dahan</h1>
+    <nav>
+      <a href="index.htm">Home</a>
+      <a href="about.htm">About</a>
+      <a href="stories.htm">Stories</a>
+      <a href="gethelp.htm" class="active">Get Help</a>
+      <a href="contact.htm">Contact</a>
+    </nav>
+  </header>
 
   <main>
     <section class="hero">
       <h2>Burning the darkness. Lighting the path.</h2>
-      <p>A movement to end manipulation, abuse, and exploitation.</p>
+      <p>A movement to end manipulation, abuse, and exploitation. Your story could inspire someone’s freedom.</p>
     </section>
 
-    <section>
+    <section class="form-section">
       <h2>Share Your Story</h2>
       <form id="storyForm" action="https://formspree.io/f/xvgalyvj" method="POST">
-        <label for="name">Your Name:</label><br />
-        <input type="text" id="name" name="name" required /><br /><br />
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Optional or alias" />
 
-        <label for="email">Your Email:</label><br />
-        <input type="email" id="email" name="email" required /><br /><br />
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="_replyto" placeholder="Optional" />
 
-        <label for="story">Your Story:</label><br />
-        <textarea id="story" name="story" rows="5" required></textarea><br /><br />
+        <label for="story">Your Story <span class="required">*</span></label>
+        <textarea id="story" name="message" rows="6" required placeholder="Write your experience here..."></textarea>
 
         <button type="submit">Submit Story</button>
       </form>
-
-      <p id="responseMessage"></p>
+      <p id="responseMessage" class="response-message"></p>
     </section>
   </main>
 
@@ -57,7 +59,6 @@
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-
       const formData = new FormData(form);
 
       fetch(form.action, {
@@ -67,14 +68,17 @@
       })
       .then(response => {
         if (response.ok) {
-          responseMessage.textContent = 'Thanks for sharing your story!';
+          responseMessage.textContent = '🌟 Thanks for sharing your story! We’re with you.';
+          responseMessage.classList.add('success');
           form.reset();
         } else {
-          responseMessage.textContent = 'Oops! There was a problem submitting your story.';
+          responseMessage.textContent = '❌ Something went wrong. Please try again later.';
+          responseMessage.classList.add('error');
         }
       })
       .catch(() => {
-        responseMessage.textContent = 'Oops! There was a problem submitting your story.';
+        responseMessage.textContent = '❌ Something went wrong. Please check your connection.';
+        responseMessage.classList.add('error');
       });
     });
   </script>
