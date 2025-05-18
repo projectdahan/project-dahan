@@ -22,15 +22,17 @@
       justify-content: space-between;
     }
     a {
-      color: #e03e2f;
+      color: #e03e2f; /* Fiery red */
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    a:hover {
-      color: #a02b1f;
+    a:hover,
+    nav a.active {
+      color: #2a662a; /* Green */
+      text-decoration: underline;
     }
     header {
-      background-color: #e03e2f;
+      background-color: #e03e2f; /* Fiery red */
       color: white;
       padding: 1rem 2rem;
       display: flex;
@@ -46,9 +48,6 @@
       margin-left: 1.5rem;
       font-weight: 600;
     }
-    nav a.active, nav a:hover {
-      text-decoration: underline;
-    }
     main {
       max-width: 700px;
       margin: 2rem auto 4rem;
@@ -56,13 +55,13 @@
     }
     h2 {
       margin-bottom: 0.6rem;
-      color: #e03e2f;
+      color: #e03e2f; /* Fiery red */
       font-weight: 700;
     }
     h3 {
       margin-top: 2rem;
       margin-bottom: 0.5rem;
-      color: #444;
+      color: #2a662a; /* Green */
     }
     p {
       margin-bottom: 1rem;
@@ -75,17 +74,17 @@
       color: #555;
     }
     form {
-      background-color: #fff7f6;
-      border: 1px solid #e03e2f;
+      background-color: #f1f9f1; /* Light green tint */
+      border: 1px solid #2a662a; /* Dark green */
       border-radius: 8px;
       padding: 1.5rem;
-      box-shadow: 0 4px 6px rgb(224 62 47 / 0.2);
+      box-shadow: 0 4px 6px rgba(42, 102, 42, 0.2);
     }
     label {
       font-weight: 600;
       display: block;
       margin-bottom: 0.3rem;
-      color: #b83223;
+      color: #2a662a; /* Dark green */
     }
     input[type="text"],
     input[type="email"],
@@ -93,7 +92,7 @@
       width: 100%;
       padding: 0.5rem 0.7rem;
       border-radius: 4px;
-      border: 1.5px solid #e6b1ac;
+      border: 1.5px solid #a0cfa0;
       font-size: 1rem;
       margin-bottom: 1rem;
       transition: border-color 0.3s ease;
@@ -104,11 +103,11 @@
     input[type="email"]:focus,
     textarea:focus {
       outline: none;
-      border-color: #e03e2f;
-      box-shadow: 0 0 5px rgba(224, 62, 47, 0.5);
+      border-color: #2a662a; /* Dark green */
+      box-shadow: 0 0 5px rgba(42, 102, 42, 0.5);
     }
     button {
-      background-color: #e03e2f;
+      background-color: #e03e2f; /* Fiery red */
       color: white;
       border: none;
       padding: 0.8rem 1.4rem;
@@ -120,14 +119,16 @@
       user-select: none;
       width: 100%;
       max-width: 200px;
+      display: block;
+      margin-top: 0.5rem;
     }
     button:hover {
-      background-color: #a02b1f;
+      background-color: #a02b1f; /* Darker fiery red */
     }
     #responseMessage {
       margin-top: 1rem;
       font-weight: 600;
-      color: #2a662a;
+      color: #2a662a; /* Green */
       min-height: 1.5rem;
     }
     footer {
@@ -195,7 +196,7 @@
         <label for="message">Your Message:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" aria-label="Send Message">Send Message</button>
       </form>
 
       <p id="responseMessage" role="alert" aria-live="polite"></p>
@@ -222,16 +223,16 @@
       })
       .then(response => {
         if (response.ok) {
-          responseMessage.style.color = '#2a662a';
+          responseMessage.style.color = '#2a662a'; // green
           responseMessage.textContent = 'Thank you for reaching out. We will get back to you soon.';
           form.reset();
         } else {
-          responseMessage.style.color = '#a02b1f';
+          responseMessage.style.color = '#a02b1f'; // dark red
           responseMessage.textContent = 'Oops! There was a problem sending your message.';
         }
       })
       .catch(() => {
-        responseMessage.style.color = '#a02b1f';
+        responseMessage.style.color = '#a02b1f'; // dark red
         responseMessage.textContent = 'Oops! There was a problem sending your message.';
       });
     });
